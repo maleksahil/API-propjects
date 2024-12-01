@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+.app-title{
+    background-color: #ff3693;
+    padding: 2em 0;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+}
+.input-wrapper{
+    font-size: 1.2em;
+    width: 17em;
+    position: relative;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+.input-wrapper input{
+    font-size: 1em;
+    width: 4em;
+    padding: 0.8em;
+    border-radius: 0.5em;
+    border: 2px solid #202020;
+}
+.input-wrapper button{
+    font-size: 1em;
+    padding: 0.8em 1em;
+    background-color: #ff3693;
+    border: none;
+    outline: none;
+    border-radius: 0.5em;
+    color: #ffffff;
+}
+#para{
+    text-align: justify;
+    color: #303030;
+    line-height: 1.8em;
+}
+br{
+    content: "" !important;
+    display: block !important;
+    margin-top: 1em !important;
+}
