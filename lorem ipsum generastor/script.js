@@ -3,7 +3,7 @@ let copyBtn = document.getElementById("copy-btn");
 let paraDisplay = document.getElementById("para");
 let options = {
     method: "GET",
-    headers: {"X-api-Key": apiKey },
+    headers: {"X-api-Key": apiKey },    
 }
 
 let url = "https://api.api-ninjas.com/v1/loremipsum?paragraphs=";

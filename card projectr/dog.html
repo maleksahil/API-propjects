@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Dog Image Fetcher</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body{
+        /* border: 1px solid black; */
+        height: 100vh;
+        background: skyblue;
+      }
+
+      .container{
+        /* border: 1px solid black; */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100px;
+        align-items: center;
+      }
+
+      input{
+        height: 50px;
+        padding-left: 30px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        outline: none;
+        border: none;
+        background-color: rgb(241, 176, 91);
+        font-size: 1.3rem;
+        color: white;
+        margin-right: 10px;
+      }
+
+      ::placeholder{
+        color: white;
+      }
+
+      button{
+        height: 50px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        width: 100px;
+        border: none;
+        color: white;
+        background-color: coral;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      button:hover{
+        background-color: rgb(241, 176, 91);
+      }
+
+      #imageContainer{
+        /* border: 1px solid black; */
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    </style>
+
+    <div class="container">
+
+      <input type="text" id="breedInput" placeholder="Enter a dog breed" />
+
+      <button onclick="fetchDogImage()">Fetch</button>
+
+    </div>
+
+    <div id="imageContainer"></div>
+
+    <script>
+      async function fetchDogImage() {
+        const breedInput = document.getElementById("breedInput");
+        const breed = breedInput.value.toLowerCase();
+
+        try {
+          const response = await fetch(
+            `https://dog.ceo/api/breed/${breed}/images/random`
+          );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          const imageUrl = data.message;
+
+          const imageContainer = document.getElementById("imageContainer");
+          imageContainer.innerHTML = `<img src="${imageUrl}">`;
+        } catch (error) {
+          console.error("Error fetching dog image:", error);
+          const imageContainer = document.getElementById("imageContainer");
+          imageContainer.innerHTML = `<p>Error fetching image for ${breed}</p>`;
+        }
+      }
+    </script>
+  </body>
+</html>
